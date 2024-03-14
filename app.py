@@ -15,7 +15,6 @@ config = {
     'messagingSenderId': "451155150098",
     'appId': "1:451155150098:web:03f78ececb145baa1c5fcb",
     'measurementId': "G-J2RNLQ8X3R",
-    "databaseURL": ''
 }
 
 # Initialize Firebase
