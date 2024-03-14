@@ -38,7 +38,8 @@ def login():
         session['user'] = user
         return redirect('/dashboard')
     except:
-        return 'Invalid email or password'
+        flash('Invalid email or password. Please try again.')
+        return redirect('/')
 
 @app.route('/signup', methods=['POST'])
 def signup():
@@ -46,11 +47,12 @@ def signup():
     password = request.form['password']
     
     try:
-        user = auth.create_user_with_email_and_password(email, password)
+        user = auth.create_user(email=email, password=password)
         session['user'] = user
         return redirect('/dashboard')
     except:
-        return 'Registration failed'
+        flash('An account with this email already exists. Please use a different email.')
+        return redirect('/')
 
 @app.route('/dashboard')
 def dashboard():

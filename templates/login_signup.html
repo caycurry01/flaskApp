@@ -7,6 +7,13 @@
 </head>
 <body>
     <h1>Login</h1>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <p style="color: red;">{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
     <form action="/login" method="POST">
         <label for="email">Email:</label><br>
         <input type="email" id="email" name="email" required><br>
@@ -16,6 +23,13 @@
     </form>
 
     <h1>Signup</h1>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <p style="color: red;">{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
     <form action="/signup" method="POST">
         <label for="email">Email:</label><br>
         <input type="email" id="email" name="email" required><br>
